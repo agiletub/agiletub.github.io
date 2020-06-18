@@ -1,0 +1,262 @@
+<!-- Need to update the overview into a table-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>IBPM</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<style>
+img{
+  max-width: 100%;
+  max-height: 100%;
+  display: block; /* remove extra space below image */
+}
+.fit-image{
+width: 456.25;
+height: 150px; /* only if you want fixed height */
+}
+#active {
+  background-color: #70a7ff;
+  color: black;
+  font-weight: bold;
+}
+.nav-link:hover{
+  background-color: #70a7ff;
+}
+#rcorners {
+  border-radius: 20px;
+  background: #a5c6fa;
+  padding: 10px;
+  color: black; 
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-image: url("media/portalbg.jpg");
+  color: #ffffff;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #008FFF;
+  color: white;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+/* Style the header */
+.header {
+  background-color: #f1f1f1;
+  padding: 5px;
+  text-align: center;
+  background-image: url("media/header.png");
+  background-repeat: no-repeat;
+  color: white;
+  background-size: auto auto;
+}
+.img_home {
+  max-height: 300px;
+  object-fit: contain;
+}
+/*Footer Image Responsiveness and Centering*/
+.footer_img {
+  height: 80px;
+  object-fit: contain;
+}
+a img {             
+display: block;
+margin: 0 auto;
+border: none;
+}
+/* Image Centering */
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+/* Style the search field */
+form.example input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+}
+
+/* Style the submit button */
+form.example button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: #2196F3;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none; /* Prevent double borders */
+  cursor: pointer;
+}
+
+form.example button:hover {
+  background: #0b7dda;
+}
+
+/* Clear floats */
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <h1>IBPM</h1>
+</div>
+
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <a class="navbar-brand" href="index.html">IBPM (Beta)</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class = "nav-item" id="active">
+        <a class = "nav-link" href="index.html" style="color:black;">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class = "nav-link" href="about.html">About</a>
+      </li>
+      <li class="nav-item">
+        <a class = "nav-link" href="info.html">Regional Information</a>
+      </li>
+      <li class="nav-item">
+        <a class = "nav-link" href="#">Contact</a>
+      </li>    
+    </ul>
+  </div>  
+</nav>
+<div class="container-fluid" style="margin-top:30px">
+  <h2>Search a protein in our database:</h2>
+  <form class="example" action="/results.html">
+    <input type="text" placeholder="Protein Name(UniProt IDs)" name="search">
+    <button type="submit"><i class="fa fa-search"></i></button>
+  </form>
+</div>
+<div class="container-fluid" style="margin-top:30px">
+  <div class="row">
+    <div class="col-lg-3" style="border-right: 1.25px solid #c9c7c7;"> 
+      <div id="rcorners">
+        <h3 style="margin-top:0px;text-align:center;">Resource Status</h3>
+        <p style="text-align:left;">
+        #Regions:
+        <span style="float:right;">
+        19
+        </span>
+        </p>
+        <p style="text-align:left;">
+        #Proteins:
+        <span style="float:right;">
+        XXXX
+        </span>
+        </p>
+        <p style="text-align:left;">
+        #Peptides:
+        <span style="float:right;">
+        XXXXXX
+        </span>
+        </p>
+        <p style="text-align:left;">
+        #Common Proteins:
+       <span style="float:right;">
+       XXX
+       </span>
+       <p style="text-align:left;">
+       #Region Specific Proteins:
+       <span style="float:right;">
+       XXXX
+       </span>
+       <p style="text-align:left;">
+       Date published:
+       <span style="float:right;">
+       XX/XX/XXXX
+       </span>
+       <p style="text-align:left;">
+       Last updated:
+       <span style="float:right;">
+       XX/XX/XXXX
+       </span>
+       </p>
+  </div>     
+    </div>
+
+    <div class="col-lg-9">
+      
+     <h2 style="margin-top:0px;">Welcome to the Inter-hemispheric Brain Proteome Map (IBPM)</h2>
+    <figure>
+      <img src="media/brain_hem.png" alt="Brain Hemispheres" class="center img_home">
+      <figcaption style="text-align: center;">Source: <a href="https://commons.wikimedia.org/wiki/Category:Cerebral_hemispheres#/media/File:Cerebral_hemisphere_-_05.png">WikiMedia</a></figcaption>
+    </figure>     
+    <p>Brain Lateralization is an important branch of neuroscience and essential to understand the function of brain, which is the most complex organ of the human body. This portal 
+      is a part of a proteomics study involving multiple regions of the brain and their Inter-hemispheric comparisons. 
+      This portal allows you to search for proteins found in our study and get an overview of its expression, peptide information,
+      and get information about inter-hemispheric comparison analysis, found through our study. 
+      <p>The IBPM Portal is dynamic and scalable. This portal is based on Django Framework and front-end is developed using Bootstrap V4</p>
+    </p>
+
+      <h5>Publications</h5>
+      <p>Upcoming</p>
+    </div>
+  </div>
+</div>
+<br>
+<div class="jumbotron text-center" style="margin-bottom:0;padding-top: 20px;padding-bottom: 20px;">
+    <div class="col-sm-12" style="border-bottom: 3.25px solid rgb(124, 120, 120); font-size: small; margin-bottom: 20px;">
+      <p style="color: #404040;">Inter-hemispheric Brain Proteome Map  
+        is currently being actively developed by Proteomics Lab, IIT Bombay, India with help from Navarrabiomed, Spain and 
+        Nottingham Trent University, UK. </p>
+      </div>   
+    <div class="d-flex justify-content-center flex-md-row flex-column"> <!--Thanks to Stack Overflow for this responsive footer idea!-->
+      <a href="http://www.iitb.ac.in"><img class="footer_img" src="media/iitb.png"></a>
+      <a href="http://www.bio.iitb.ac.in/~sanjeeva/"><img class="footer_img" src="media/massfiitb.png"></a>
+      <a href="https://www.navarrabiomed.es/en"><img class="footer_img" src="media/nbmrc.png"></a>
+      <a href="https://proteored.org"><img class="footer_img" src="media/ProtRed.png"></a>
+      <a href="https://www.ntu.ac.uk"><img class="footer_img" src="media/ntu.png"></a>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

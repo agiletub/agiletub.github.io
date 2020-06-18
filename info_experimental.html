@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Search Results|IBPM</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script src = "https://d3js.org/d3.v4.min.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<style>
+img{
+  max-width: 100%;
+  max-height: 100%;
+  display: block; /* remove extra space below image */
+}
+#active {
+  background-color: #70a7ff;
+  color: black;
+  font-weight: bold;
+}
+.nav-link:hover{
+  background-color: #70a7ff;
+}
+.fakeimg {
+  height: 200px;
+  background: #aaa;
+}
+#rcorners {
+  border-radius: 10px;
+  background: #a5c6fa;
+  padding: 10px; 
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #FAF8F3;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #008FFF;
+  color: white;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+/* Style the header */
+.header {
+  background-color: #f1f1f1;
+  padding: 5px;
+  text-align: center;
+  background-image: url("header.png");
+  background-repeat: no-repeat;
+  color: white;
+  background-size: auto auto;
+}
+
+/* Image Centering */
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+/* Style the search field */
+form.example input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+}
+/* not active */
+/* main tabs */
+.nav-pills .pill-1 .nav-link:not(.active) {
+    background-color: rgb(255, 0, 0);
+    color: white;
+}
+
+.nav-pills .pill-2 .nav-link:not(.active) {
+    background-color: rgb(0, 192, 26);
+    color: white;
+}
+
+.nav-pills .pill-3 .nav-link:not(.active) {
+    background-color: rgb(35, 111, 224);
+    color: white;
+}
+/*regions*/
+
+
+/* active (faded) */
+/*main tabs*/
+.nav-pills .pill-1 .nav-link {
+    background-color: rgba(255, 0, 0, 0.2);
+    color: white;
+}
+
+.nav-pills .pill-2 .nav-link {
+    background-color: rgba(0, 192, 26, 0.2);
+    color: white;
+}
+
+.nav-pills .pill-3 .nav-link {
+    background-color: rgba(35, 111, 224, 0.2);
+    color: white;
+}
+/*regions*/
+
+
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <h1>IBPM</h1>
+</div>
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <a class="navbar-brand" href="#">IBPM Logo</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">About Us</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Contact</a>
+      </li>    
+      <li class="nav-item" id = "active">
+        <a class = "nav-link" href="#" style="color:black;">Info</a>
+      </li>
+    </ul>
+  </div>  
+</nav>
+
+<div class="container-fluid" style = "margin-top:10px">
+  <a href="index.html">Back to Home Page</a>
+</div>
+
+<div class="container-fluid" style="margin-top:10px">
+    <h2>Regions</h2>
+    <!--<a href ="#">View as a single page</a>-->
+    <h3>Regional Information</h3> 
+    <ul class="nav nav-pills">
+        <li class="nav-item pill-1">
+            <a class="nav-link active" data-toggle="tab" href="#foreb">Forebrain</a>
+        </li>
+        <li class="nav-item pill-2">
+            <a class="nav-link" data-toggle="tab" href="#midb">Midbrain</a>
+        </li>
+        <li class="nav-item pill-3">
+            <a class="nav-link" data-toggle="tab" href="#hindb">Hindbrain</a>
+        </li>
+    </ul>
+
+<!-- Tab panes (Experimental) -->
+  <div class="tab-content">
+<!-- Forebrain-->
+    <div id="foreb" class="container-fluid tab-pane active"><br>
+        <ul class="nav nav-pills">
+            <li class="nav-item pill-1">
+                <a class="nav-link active" data-toggle="tab" href="#amy">Amygdala</a>
+            </li>
+            <li class="nav-item pill-2">
+                <a class="nav-link" data-toggle="tab" href="#reg2">Midbrain</a>
+            </li>
+            <li class="nav-item pill-3">
+                <a class="nav-link" data-toggle="tab" href="#reg3">Hindbrain</a>
+            </li>
+        </ul>
+        <div class="tab-content">
+           <div id="amy" class="container-fluid tab-pane active"><br>
+            <div class="row">
+                <div class="col-sm-4">
+                <div class="table-responsive"  id="rcorners">
+                    <h5 style="text-align:center;"><b>Amygdala</b></h5>
+                    <img src="amygdala.jpg">
+                    <table class="table table-borderless table-hover">
+                       <tbody>
+                            <tr>
+                              <td><b>Region Name:<b></td>
+                              <td>Amygdala</td>
+                            </tr>
+                            <tr>
+                              <td><b>Number of Proteins Detected:<b></td>
+                              <td>XXXX</td>
+                            </tr>
+                            <tr>
+                              <td><b>Number of Peptides Detected:<b></td>
+                              <td>XXXXX</td>
+                            </tr>
+                            <tr>
+                               <td><b>HPA Region Link:<b></td>
+                               <td><a href="https://www.uniprot.org/uniprot/Q9UMF0">Link</a></td>
+                            </tr>
+                        </tbody>   
+                    </table>
+                </div>  
+                </div>
+                <div class="col-sm-8">
+                   <h3>Information goes here</h3>
+                </div>
+            </div><!--row-->
+           </div> 
+           <div id="thal" class="container-fluid tab-pane fade"><br>
+            <div class="row">
+                <div class="col-sm-4">
+                <div class="table-responsive"  id="rcorners">
+                    <h5 style="text-align:center;"><b>Amygdala</b></h5>
+                    <img src="amygdala.jpg">
+                    <table class="table table-borderless table-hover">
+                       <tbody>
+                            <tr>
+                              <td><b>Region Name:<b></td>
+                              <td>Amygdala</td>
+                            </tr>
+                            <tr>
+                              <td><b>Number of Proteins Detected:<b></td>
+                              <td>XXXX</td>
+                            </tr>
+                            <tr>
+                              <td><b>Number of Peptides Detected:<b></td>
+                              <td>XXXXX</td>
+                            </tr>
+                            <tr>
+                               <td><b>HPA Region Link:<b></td>
+                               <td><a href="https://www.uniprot.org/uniprot/Q9UMF0">Link</a></td>
+                            </tr>
+                        </tbody>   
+                    </table>
+                </div>  
+                </div>
+                <div class="col-sm-8">
+                   <h3>Information goes here</h3>
+                </div>
+            </div><!--row-->
+           </div>
+           <div id="fwm" class="container-fluid tab-pane fade"><br>
+            <div class="row">
+                <div class="col-sm-4">
+                <div class="table-responsive"  id="rcorners">
+                    <h5 style="text-align:center;"><b>Amygdala</b></h5>
+                    <img src="amygdala.jpg">
+                    <table class="table table-borderless table-hover">
+                       <tbody>
+                            <tr>
+                              <td><b>Region Name:<b></td>
+                              <td>Amygdala</td>
+                            </tr>
+                            <tr>
+                              <td><b>Number of Proteins Detected:<b></td>
+                              <td>XXXX</td>
+                            </tr>
+                            <tr>
+                              <td><b>Number of Peptides Detected:<b></td>
+                              <td>XXXXX</td>
+                            </tr>
+                            <tr>
+                               <td><b>HPA Region Link:<b></td>
+                               <td><a href="https://www.uniprot.org/uniprot/Q9UMF0">Link</a></td>
+                            </tr>
+                        </tbody>   
+                    </table>
+                </div>  
+                </div>
+                <div class="col-sm-8">
+                   <h3>Information goes here</h3>
+                </div>
+            </div><!--row-->
+           </div>
+           <div id="olfb" class="container-fluid tab-pane fade">
+            <div class="row">
+                <div class="col-sm-4">
+                <div class="table-responsive"  id="rcorners">
+                    <h5 style="text-align:center;"><b>Amygdala</b></h5>
+                    <img src="amygdala.jpg">
+                    <table class="table table-borderless table-hover">
+                       <tbody>
+                            <tr>
+                              <td><b>Region Name:<b></td>
+                              <td>Amygdala</td>
+                            </tr>
+                            <tr>
+                              <td><b>Number of Proteins Detected:<b></td>
+                              <td>XXXX</td>
+                            </tr>
+                            <tr>
+                              <td><b>Number of Peptides Detected:<b></td>
+                              <td>XXXXX</td>
+                            </tr>
+                            <tr>
+                               <td><b>HPA Region Link:<b></td>
+                               <td><a href="https://www.uniprot.org/uniprot/Q9UMF0">Link</a></td>
+                            </tr>
+                        </tbody>   
+                    </table>
+                </div>  
+                </div>
+                <div class="col-sm-8">
+                   <h3>Information goes here</h3>
+                </div>
+            </div><!--row-->
+           </div>
+           <div id="froncor" class="container-fluid tab-pane fade"><br>
+            <div class="row">
+                <div class="col-sm-4">
+                <div class="table-responsive"  id="rcorners">
+                    <h5 style="text-align:center;"><b>Amygdala</b></h5>
+                    <img src="amygdala.jpg">
+                    <table class="table table-borderless table-hover">
+                       <tbody>
+                            <tr>
+                              <td><b>Region Name:<b></td>
+                              <td>Amygdala</td>
+                            </tr>
+                            <tr>
+                              <td><b>Number of Proteins Detected:<b></td>
+                              <td>XXXX</td>
+                            </tr>
+                            <tr>
+                              <td><b>Number of Peptides Detected:<b></td>
+                              <td>XXXXX</td>
+                            </tr>
+                            <tr>
+                               <td><b>HPA Region Link:<b></td>
+                               <td><a href="https://www.uniprot.org/uniprot/Q9UMF0">Link</a></td>
+                            </tr>
+                        </tbody>   
+                    </table>
+                </div>  
+                </div>
+                <div class="col-sm-8">
+                   <h3>Information goes here</h3>
+                </div>
+            </div><!--row-->
+           </div>
+           <div id="parcor" class="container-fluid tab-pane fade"><br>
+            <div class="row">
+                <div class="col-sm-4">
+                <div class="table-responsive"  id="rcorners">
+                    <h5 style="text-align:center;"><b>Amygdala</b></h5>
+                    <img src="amygdala.jpg">
+                    <table class="table table-borderless table-hover">
+                       <tbody>
+                            <tr>
+                              <td><b>Region Name:<b></td>
+                              <td>Amygdala</td>
+                            </tr>
+                            <tr>
+                              <td><b>Number of Proteins Detected:<b></td>
+                              <td>XXXX</td>
+                            </tr>
+                            <tr>
+                              <td><b>Number of Peptides Detected:<b></td>
+                              <td>XXXXX</td>
+                            </tr>
+                            <tr>
+                               <td><b>HPA Region Link:<b></td>
+                               <td><a href="https://www.uniprot.org/uniprot/Q9UMF0">Link</a></td>
+                            </tr>
+                        </tbody>   
+                    </table>
+                </div>  
+                </div>
+                <div class="col-sm-8">
+                   <h3>Information goes here</h3>
+                </div>
+            </div><!--row-->
+           </div>
+           <div id="occicor" class="container-fluid tab-pane fade"><br>
+            <div class="row">
+                <div class="col-sm-4">
+                <div class="table-responsive"  id="rcorners">
+                    <h5 style="text-align:center;"><b>Amygdala</b></h5>
+                    <img src="amygdala.jpg">
+                    <table class="table table-borderless table-hover">
+                       <tbody>
+                            <tr>
+                              <td><b>Region Name:<b></td>
+                              <td>Amygdala</td>
+                            </tr>
+                            <tr>
+                              <td><b>Number of Proteins Detected:<b></td>
+                              <td>XXXX</td>
+                            </tr>
+                            <tr>
+                              <td><b>Number of Peptides Detected:<b></td>
+                              <td>XXXXX</td>
+                            </tr>
+                            <tr>
+                               <td><b>HPA Region Link:<b></td>
+                               <td><a href="https://www.uniprot.org/uniprot/Q9UMF0">Link</a></td>
+                            </tr>
+                        </tbody>   
+                    </table>
+                </div>  
+                </div>
+                <div class="col-sm-8">
+                   <h3>Information goes here</h3>
+                </div>
+            </div><!--row-->
+           </div>
+           <div id="tempcor" class="container-fluid tab-pane fade"><br>
+            <div class="row">
+                <div class="col-sm-4">
+                <div class="table-responsive"  id="rcorners">
+                    <h5 style="text-align:center;"><b>Amygdala</b></h5>
+                    <img src="amygdala.jpg">
+                    <table class="table table-borderless table-hover">
+                       <tbody>
+                            <tr>
+                              <td><b>Region Name:<b></td>
+                              <td>Amygdala</td>
+                            </tr>
+                            <tr>
+                              <td><b>Number of Proteins Detected:<b></td>
+                              <td>XXXX</td>
+                            </tr>
+                            <tr>
+                              <td><b>Number of Peptides Detected:<b></td>
+                              <td>XXXXX</td>
+                            </tr>
+                            <tr>
+                               <td><b>HPA Region Link:<b></td>
+                               <td><a href="https://www.uniprot.org/uniprot/Q9UMF0">Link</a></td>
+                            </tr>
+                        </tbody>   
+                    </table>
+                </div>  
+                </div>
+                <div class="col-sm-8">
+                   <h3>Information goes here</h3>
+                </div>
+            </div><!--row-->
+           </div>
+        </div>      
+    </div>
+
+    
+    
+    
+<!-- Midbrain-->
+    <div id="midb" class="container-fluid tab-pane fade"><br>
+      <div class="row">
+             <div class="col-sm-4">
+             <div class="table-responsive" id="rcorners">
+             <h5 style="text-align:center;"><b>Q9UMF0</b></h5>
+               <table class="table table-borderless table-hover">
+                  <tbody>
+                     <tr>
+                       <td><b># of Peptides:<b></td>
+                       <td>XX</td>
+                     </tr>
+                     <tr>
+                       <td><b># of Shared Peptides:<b></td> <!-- we can change row colors-->
+                       <td>XX</td>
+                     </tr>
+                     <tr>
+                       <td><b># of Unique Peptides:<b></td>
+                       <td>XX</td>
+                     </tr>
+                     <tr>
+                       <td><b>ProteomeDB Peptide:<b></td>
+                       <td><a href="https://www.uniprot.org/uniprot/Q9UMF0">Link</a></td>
+                     </tr>
+                     <tr>
+                       <td><b>Peptide Atlas:<b></td>
+                       <td><a href="https://www.uniprot.org/uniprot/Q9UMF0">Link</a></td>
+                     </tr>
+                  </tbody>
+               </table>
+             </div>
+             </div>
+             <div class="col-sm-8">
+               <h3>Plots</h3>
+               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+               <div id="tester" style="width:600px;height:250px;"></div>
+             </div>
+      </div><!--row-->
+      <h3 style="text-align:center;margin-top:25px;">Protein Identification Summary</h3>
+          <p>Some charts<p>
+    </div>
+    
+    
+<!-- Hindbrain-->
+    <div id="hindb" class="container-fluid tab-pane fade"><br>
+      <div class="row">
+             <div class="col-sm-12">
+               <h3>HOME</h3>
+               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+             </div>
+     </div>
+    </div>
+
+  </div>
+</div>
+
+<br>
+<div class="jumbotron jumbotron-fluid text-center" style="margin-bottom:0">
+  <p>Footer</p>
+</div>
+</body>
+</html>
