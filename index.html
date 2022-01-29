@@ -17,23 +17,48 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </head>
-
-<body>
+<style>
+    a.selflink {
+          color: grey;
+        }
+        .change {
+            cursor: pointer;
+            border: 1px solid #555;
+            border-radius: 40%;
+            width: 20px;
+            text-align: center;
+            padding: 5px;
+            margin-left: 8px;
+        }
+        .dark{
+            background-color: #222;
+            color: #e6e6e6;
+        }
+</style>
+<body class="dark">
+    
     <font face = 'courier'>
-        <div class='container-fluid'>       
-            <center><br>
-                <!--
-                ║██ ██ ██ ██ ██ ██ ██ ██ ██ ██ ██ ██ ██║<br>
-                ║██ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ██║<br>               
-                ║██ ╭━━━╮╱╱╱╱╱╭╮╱╱╱╱╱╱╭━━━╮╱╱╱╱╱╱╱╭╮ ██║<br>
-                ║██ ╰╮╭╮┃╱╱╱╱╱┃┃╱╭╮╱╱╱┃╭━╮┃╱╱╱╱╱╱╱┃┃ ██║<br>
-                ║██ ╱┃┃┃┣╮╭┳━━┫┃╭┫┣━━╮┃╰━╯┣━━┳━╮╭━╯┃ ██║<br>
-                ║██ ╱┃┃┃┃┃┃┃╭━┫╰╯┻┫━━┫┃╭━━┫╭╮┃╭╮┫╭╮┃ ██║<br>
-                ║██ ╭╯╰╯┃╰╯┃╰━┫╭╮╮┣━━┃┃┃╱╱┃╰╯┃┃┃┃╰╯┃ ██║<br>
-                ║██ ╰━━━┻━━┻━━┻╯╰╯╰━━╯╰╯╱╱╰━━┻╯╰┻━━╯ ██║<br>
-                ║██ ██ ██ ██ ██ ██ ██ ██ ██ ██ ██ ██ ██║<br>
-                 ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░ ░░<br>
-                 -->
+        <div class='row'>       
+            <div class ='col-md-6' style="font-size: small;">
+            <pre class="dark"><center>
+         --......-                                
+       `y-       `/.                              
+       y/ `-       y`                             
+     `/y  .+`      d`                             
+ -:///:+s`        :o                              
+:-----:/s+:/+    .o                               
+ ``````` .::`   .s`   .----:::::::::::-.````      
+       ./:`    -o..-::-.`````   ``...--::+s:      
+      //`     -h:.``                     +/...-+  
+     +-       +-                           ./ss/. 
+    +:                                 `.-:://:+/ 
+   `s            `                 ``.../s-`  .o/ 
+   -/            .:.`  `--...-+:..-/o/--.    -o+/.
+~^~^~^~^~^^~^~^~^~^~^~^~^~^~^~^~~^~^~^~^~^^~^~^~^~
+        </pre></center>              
+            </div>  
+            
+            <div class ='col-md-6'><center><br>
                 ╭━━┳━━┳━━┳━━┳━━┳━━┳━━┳━━┳━━┳━━╮<br>
                 ╰━━┻━━┻━━┻━━┻━━┻━━┻━━┻━━┻━━┻━━╯<br>
                 ╭━━━╮╱╱╱╱╱╭╮╱╱╱╱╱╱╭━━━╮╱╱╱╱╱╱╱╭╮<br>
@@ -44,76 +69,171 @@
                 ╰━━━┻━━┻━━┻╯╰╯╰━━╯╰╯╱╱╰━━┻╯╰┻━━╯<br>
                 ╭━━┳━━┳━━┳━━┳━━┳━━┳━━┳━━┳━━┳━━╮<br>
                 ╰━━┻━━┻━━┻━━┻━━┻━━┻━━┻━━┻━━┻━━╯<br>
-            </center>
+
+                </center>
+            </div>
+        </div>
+        <hr style="border-top: dotted 1px;">
+        <a id="top"></a>
+        <div class="row" style="margin-left: 10px; margin-right: 10px;">
+            <div class="col-md-3"><center><h5><a id="date"></a></center></h5></div>
+            <div class="col-md-6"><center><h5><b>Welcome to the Duck's Pond! (Est. 2022)</center></b></h5></div>
+            <div class="col-md-3"><center><h5><a class="selflink" href="#contact">Contact</a> or <a class="selflink" href="#infty">About the Pond</a></center></h5></div>
         </div>
         <hr style="border-top: dotted 1px;">
         <div class="row" style="margin-left: 10px; margin-right: 10px;">
-            <div class="col-md-3"><center><a id="date"></a></center></div>
-            <div class="col-md-6"><center>Welcome to the Duck's Pond! (Est. 2022)</center></div>
-            <div class="col-md-3"><center><a href="index"></a> <a href="contact">Contact</a> <a href="archive">The Banks</a></center></div>
+            <div class="col-md-3"><center>Toggle Dark Mode:            
+                <span class="change">OFF</span>
+            </div>
+            <div class="col-md-6"><center>If you are new, read <a class="selflink" href="#infty">The Preface</a>!</center></div>
+            <div class="col-md-3"><center>Lines of Code: 258</div>
         </div>
-        <hr style="border-top: dotted 1px;">
-        <center>Lines of Code: </center>
         <div class="row" style="margin: 10px;">
-            <div class="col-md-8">
-                <h1>#<img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c26c105004f30c27aa7c2a9c601550a4183b1f21" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:2.324ex; height:1.676ex;" alt="\infty "> - The Passage</h1>
+<!-- This is where the Compass Goes! -->
+            <div class="col-md-3" style="border: dotted 1px;">
+                <h2><a class="selflink" id="compass" href="compass">The Compass</a></h2>
+                <h5>Use this to navigate around the Pond! <br> The Latest Posts are the first to appear in the below list. </h4>
+            <ul>
+                <li><a class="selflink" href="#infty">#&infin; - The Preface</a></li>
+
+            </ul>
+                
+            </div>
+<!-- This is where the BlogRoll Starts-->
+            <div class="col-md-9" style="border: dotted 1px;">
+                <div>
+                <h1><a class="selflink" id="infty" href="#infty">#&infin; - The Preface</a></h1>
                 <h3><i>Floating in the Pond since 29/01/2022</i></h2>
+                <pre class="dark"><font style="font-size: 4px;"><center>                                                                                                    
+                                                                    `:/ooo+/:.`                     
+                                                                  `oddhyyhhdhhh+.                   
+                                                                 .hmdmdhhhhdddddh:                  
+                                                                `hmdddmddddddddddh`                 
+                                                                smhyyyhdmmmmmmmmmd/                 
+                                                               :Nhyysysyyhddddmmmmh`                
+                                                               ydyyyyyyyyyhhddd+ydd-                
+                                                               mddhhyhhhhhhhdms:/++/`               
+                                                              `Nmmmdddddddddmd/:/yo/:`              
+                                                              -NNNNNmmmmmmmNy/:::////:`             
+                                                              :NNNNNNNNNNNNNm+::.-:////:.`          
+                                                              +NmmmmmNNNNMMMm  `.://///++//.`       
+                                                              +NmdmmNNNNNNNMh     .:///ooomh:       
+                                                              :mddmmmNNNNNNNs          ``-++`       
+                                                              /mddmmNNNNNmNmy                       
+                                                              :mddmmNNNNmmmmh                       
+                                                              :h+..-+o/:-::.`                       
+                                                               :`.:+o+//:://+.                      
+                                                               .+ddddmmmdhhdhy:                     
+                                                               -ddddddddddddddh:                    
+                                                               ohhdddhddddddddhh/                   
+                                                    ``````````-yhhdddddddhdddddhh+`                 
+                                              ``:/++++/++//++/yhhhdddddddddddddhhhs`                
+                                      ```...----:::::+ooo+++/+yhhhdddddddddddddhhhhs.               
+                                `````.----::::////////+sso+//shhhhdddmmdddddddddhhhhs.              
+                          ``....-----::://++ooo+++++++osso+/+yhhhhdddmmddddddhdddhhhhy.             
+                    ``...--::/++ooooossssyyysso++++++++sso+/oyhhhhddddmddddhhhhdddhhhhs`            
+           `  ` ``.-////+++oshddddhhhhyyysso+//////////os+/+syhhhhhhdddddddhhhhhdddhhhhs            
+      .` +hs/.--/+osyyhhdyyssyhhyo+//::-------:::::////oo++syhhhhhhhdhddddhhddhhhhdddhdd/           
+     .m./Nm::/+ssyhddmmNNmhs/::---------------:::::///:/o++yyhdhhhyhdhhhddddddddhhhdddmdh`          
+     /N-oNms+syhddmmNNNNds/------------------::::::////+o+ohddhhhhyhhhhhhdddddddddhddmddd:          
+     `mdoNNNhyhdmmNNNNdo-------.--------------:::////+/++/ohdddhhhhddddddddddmmmddhdmdmmm+          
+      smmNNNNmddhhhhss/--------.------------:::::////////sshddddddddmdddddmmmmmmmmmmmmmmm+          
+   ```.:mMNNNm--  `........---....---------:::::://////+ohddmmmddmmdmmmdmmmmNmmmmmmmmmmmm:          
+   `````:ymNN/   `.......-.--....-------:--:::::://:::+hydmmmmmmmmmmmdmmmmNNNNNNmNmmmmmmd.          
+       .+oomm   ``........---.......--------:::://::::+hddmmmmmNmmmmNmmmmNNNNNNNNNmmNmmms           
+         :ymo  `..........-..--...-----------::::/:::-/shmmmmmmNNNNmmmNNNNmNNNNNNNmmmmmd.           
+           `.` `..----....--------.-----------::::::/::/oddmmmmNNNNNNNNNNNNNNNNNNNmmNmm:            
+              ```...---...:-:-----------------:::::::///oyddmmNNNNNNNNNNNNNNNNNNNNmmNm:             
+                `...````.`.--:------...------:-:::://:/++oydmNNNNNNNNNNNNNNNNNNNNNNmy.              
+                  ``.....--.-::---:::-----:::::::////+++oohddmNNNNNNNNNNNNNNNNNNmmy-                
+                     `..--:-://///:://::::::://///+++++oosyhdmNNNNNNNNNNNNNNNNmy+.                  
+                         .-:://://++////:/:///+++++ooosssyyyyhddmmmmNNNNNdhs/-`                     
+                            `-://++++::+oo++oooooossssyyyhhhhhddddhyso/-.``                         
+                               ``-:/+::yddhyssssyyyyyhhhhhhyso+:.```                                
+                                    `:/oho://++ooosoohdds..``                                       
+                                     -/sh.           sdhs                                           
+                                     ./+o            +ysy-                                          
+                                     `//+`          `+oos/                                          
+                                      //:.         `oo+oso``````..-:/+:`                            
+                                      ::::         `/`/+yy+///++++++o+                              
+                                      ://o-           -/+oo+++///:/+o/`                             
+                                      -//o+:-...`````.`.-:/o+///:.-::+:                             
+                                       -:+s/:/+ooooossy:  `.`                                       
+                                        --/ooo+/:::/++oo+.                                          
+                                         `--:+oooo++/::+os-                                         
+                                           `..:+o+:-`````.-`                                        
+                                                                                                    
+                </pre></font></center>
                 <p>
-                    Welcome to this website (read: webpage) which has a very odd name and a very odd, and perhaps aesthetically uninspiring
+                    Welcome to this website (<i>read: webpage</i>) which has a very odd name and a very odd, and perhaps aesthetically uninspiring
                     design. The name, as simple as it sounds, has no correlation to any object of significance. The Pond is a 
-                    representation of (a subset) of my thoughts, and the Duck, is me. The name could have had "interesting"
+                    representation of (a subset) of my thoughts and the Duck, is me. The name could have had "interesting"
                     or fancier sounding words, but that's not the purpose. Just as there are millions of ponds in the world and
                     a good chunk of them having ducks with them, there are 7+ billion people in this world, and each having their
-                    unique set of thoughts and stories with them. No one, single person is special, but everyone is indeed <b>special</b>. 
+                    unique set of thoughts and stories with them. No one single person is special, but everyone is indeed <b>special</b>. 
                     No matter how common a pond is, for a duck, its pond is its universe, the source of its happiness. 
                     Similarly, for us, our thoughts are what we are defined by, what we live by, some thoughts may be truly unique, or
                     ground breaking, some may be really common, but the only thing that matters at the end of the day is that they are 
-                    our thoughts.
+                    a part of our identity, and are <b>our</b> thoughts.
                 </p>
                 <p>
-                    "Okay, that's really cool and all, but then why share your 'Pond' with the Internet?" might be your natural next 
-                    question. Well, short answer is I don't know for sure. I feel like sharing thoughts and experiences with others is a 
-                    privilege and one of the best things we, as Humans can do. If my thoughts resonate with yours, or they make you 
-                    shudder in resentment, I will be happy knowing that you decided to listen out to them, and were capable to process them 
+                    "Okay, that's really cool and all but then, why share your 'Pond' with the Internet?" might be your natural next 
+                    question. Well, short answer is - I don't know for sure. I feel like sharing thoughts and experiences with others is a 
+                    privilege and one of the best things that we, as humans can do. If my thoughts resonate with yours, or they make you 
+                    shudder in resentment, I will be happy knowing that you decided to listen to them, were capable to process them 
                     and form your own peace with it. As a reader, you have the privilege of judging me based on the limited subset of knowledge
                     you have about my thinking process, whereas I can only assume what the majority might perceive. I only hope that through
                     this medium, this <b>passage</b> we can have a healthy (mostly one-sided) conversation. Should you wish to contact me 
-                    personally or respond to an individual piece, you can do so via e-mail :)
+                    personally or respond to an individual piece, you can do so via e-mail. Each piece will have a "Reply to this Piece" hyperlink 
+                    which when clicked on, will open your e-mail client with a pre-written subject for ease. There are no 'likes' or 'hearts' counter
+                    since they don't really matter and shouldn't be a factor which influences your opinion about any piece. :)
                 </p>
                 <p>
                     Now that the "What?" and "Why?" are out of the way. Let's go to "How?"
                     Everything here, is put together in a single page. Every single article, or rather, a <i>piece</i>, is on
-                    this one, single HTML file. No matter how large this file gets, this will be the only file on the webserver. 
+                    this one, single HTML file (excluding BootStrap and jQuery). No matter how large this file gets, this will be the only file on the webserver. 
                     As a nice experiment, the number of lines of code is mentioned above!
-                    There will not be any images, rather ASCII-generated recreations of the images. The color schreme is monochrome.
+                    There will not be any images, rather ASCII-generated recreations of the images. The color schreme is monochrome (with exception of blue coloured external hyperlinks).
                     And the only structural entities will be text/characters. The only thing, which will be 
-                    "external", in regards to this webpage are hyperlinks to external sources. As always, credits should be due where they are.
+                    "external", in regards to this webpage are hyperlinks to external sources (blue hyperlinks). As always, credits should be due where they are.
                 </p>
                 <p>
                     Each piece will be numbered. This piece has <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c26c105004f30c27aa7c2a9c601550a4183b1f21" class="mwe-math-fallback-image-inline" aria-hidden="true" style="vertical-align: -0.338ex; width:2.324ex; height:1.676ex;" alt="\infty "> 
-                    as its <i>number</i>, since this will always be sticking out at the top. The only organizational (or rather navigational) structure enforced are hyperlinks, 
+                    as its <i>number</i>, since this will be the guide for newcomers and hence to make it stand out, it has a special <i>number</i> attached to it. 
+                    The only organizational (or rather navigational) structure enforced are self-linking hyperlinks (greyed out text)
                     which present to navigate around each piece. The content of this piece <i>may</i> change, as appropriate, but for every single piece 
                     after this, there will <b>NOT</b> be any changes made to the piece once it's out there or published or what I term as <i>'floating'</i>. 
                     Any change of mind would have to be in a separate piece itself. If there are minor grammatical mistakes, they will be ironed out.
                 </p>
                 <p>
-                    The reason for this absurb "No Edit" design is as follows: The words, once uttered, cannot be taken back. <br>
-                    The reason for this absurd "Single Page" design is as follows: Our thoughts and our conscience are a single unit,
+                    The reason for this absurb <b>"No Edit"</b> design is as follows: The words, once uttered, cannot be taken back. <br>
+                    The reason for this absurd <b>"Single Page"</b> design is as follows: Our thoughts and our conscience are a single unit,
                     not a collection of things organized for convenience of access for anyone, including self. <br>
-                    The reason for this absurd aesthetic design is as follows: The 'Pond' is supposed to be the collection of my thoughts, 
-                    and no matter what media we use, you can never access the mental picture I have. So I decided not to include any thing
-                    aside from text, and characters, the basis of language. Language is the most basic means of getting your thoughts across 
+                    The reason for this <b>absurd aesthetic design</b> is as follows: The 'Pond' is supposed to be the collection of my thoughts, 
+                    and no matter what media I use, you can never access the mental picture I have. So I decided not to include any thing
+                    aside from text, and characters - the basis of language. Language is one of the most basic means of getting your thoughts across 
                     after all. (Plus, you get to form your own imaginations, like reading a book!). 
-                    Also, there are no fancy CSS/JavaScript stuff, just pure text. After all, what truly matters is not how my thoughts <i>look</i>
-                    but how they are read and understood.
-                    This website is just a <i>HTML-version of a PDF</i>
+                    Also, there are no fancy visual CSS/JavaScript stuff, just pure text. Since, what truly matters is the content, and not the appearance.
+                    This website is just a <i>responsive and web-friendly PDF</i>.
                 </p>
                 <b>Happy Floating!</b>
+                <center>~Fin~
+                <h5><a href="mailto:shenoysanjyot648@gmail.com?subject=Replying to The Preface - (title here)">Reply regarding this Piece</a></h5> 
+                <h5>Go back to the <a class="selflink" href="#compass">Compass</a> or to the <a class="selflink" href="#infty">beginning of the piece</a></h5>
+                </center>
+                </div>         
             </div>
+            
         </div>
-
-        </div>
-    </font> 
+<br>
+<hr style="border-top: dotted 1px;">
+<center>
+    <h1><a class="selflink" id="contact" href="#top">The Duck's Pond</a></h1>
+    <h3>Contact: <a href="mailto:shenoysanjyot648@gmail.com?subject=Wanted to Contact Regarding The Duck's Pond">shenoysanjyot648@gmail.com</a></h3>
+    <!-- h5>You can download the Pond and view it locally by clicking here!</h5-->
+    <h5>Resources used for ASCII-Art: <a href="text-image.com">Here</a></h5>
+    <h5>Go back to the <a class="selflink" href="#compass">Compass</a> or to the <a class="selflink" href="#top">Top</a></h5>
+</center>
 </body>
 <script>
     /* Getting Date */
@@ -122,4 +242,17 @@
     m = n.getMonth() + 1;
     d = n.getDate();
     document.getElementById("date").innerHTML = "Today's Date is " + d + "/" + m + "/" + y;
+</script>
+<script>
+    $( ".change" ).on("click", function() {
+        if( $( "body" ).hasClass( "dark" )) {
+            $( "body" ).removeClass( "dark" );
+            $( "pre" ).removeClass( "dark" )
+            $( ".change" ).text( "OFF" );
+        } else {
+            $( "body" ).addClass( "dark" );
+            $( "pre" ).addClass( "dark" );
+            $( ".change" ).text( "ON" );
+        }
+    });
 </script>
